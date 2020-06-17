@@ -80,9 +80,9 @@ def write_pandas(conn: 'SnowflakeConnection',
             compression,
             compression_map.keys()
         ))
-    location = (('"' + database + '".') if database else '' +
-                                                         ('"' + schema + '".') if schema else '' +
-                                                                                              ('"' + table_name + '"'))
+    location = ((('"' + database + '".') if database else '') +
+                                                         (('"' + schema + '".') if schema else '') +
+                                                                                              (('"' + table_name + '"')))
     if chunk_size is None:
         chunk_size = len(df)
     cursor = conn.cursor()
